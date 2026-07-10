@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pointless — Family Edition</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='32' rx='30' ry='20' fill='%230a2410' stroke='%23ffd23f' stroke-width='4'/%3E%3Ctext x='32' y='41' font-family='Arial Black' font-size='26' fill='%23ffe23c' text-anchor='middle' font-weight='900'%3E100%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================= STAGE ======================= -->
+  <div id="stage">
+    <div class="stars" id="stars"></div>
+    <div class="arc a1"></div>
+    <div class="arc a2"></div>
+    <div class="beams" id="beams"></div>
+    <div class="floorglow"></div>
+
+    <!-- The Pointless tower -->
+    <div class="tower" id="tower">
+      <div class="pillar left"></div>
+      <div class="tower-mid">
+        <div class="oval-zone">
+          <div class="tower-oval" id="towerOval">
+            <span id="towerValue">100</span>
+          </div>
+        </div>
+        <div class="shaft">
+          <div class="tower-fill" id="towerFill">
+            <div class="shimmer"></div>
+          </div>
+          <div class="pointless-letters" id="pointlessLetters"></div>
+        </div>
+      </div>
+      <div class="pillar right"></div>
+    </div>
+
+    <!-- The main board -->
+    <div class="board">
+      <div class="board-screen" id="boardScreen">
+
+        <!-- Idle / between rounds -->
+        <div class="logo-wrap" id="idleWrap">
+          <div class="logo">POINTLESS</div>
+          <div class="logo-sub">Family Edition</div>
+        </div>
+
+        <!-- Live question -->
+        <div class="lozenge question hidden" id="qLozenge">
+          <div class="txt" id="qText"></div>
+        </div>
+
+        <!-- Current answer being scored -->
+        <div class="answer-block hidden" id="answerBlock">
+          <div class="player-tag" id="answerTag"></div>
+          <div class="lozenge answer">
+            <div class="txt" id="answerText"></div>
+          </div>
+        </div>
+
+        <div class="prompt-line" id="promptLine"></div>
+
+        <div class="big-msg" id="bigMsg"></div>
+
+        <!-- Full answers reveal overlay -->
+        <div class="all-answers hidden" id="allAnswers">
+          <h3>The Full List</h3>
+          <div class="rows" id="allAnswersRows"></div>
+        </div>
+
+      </div>
+
+      <!-- Player podiums -->
+      <div class="podium-row" id="podiumRow"></div>
+    </div>
+
+    <div class="stage-flash" id="stageFlash"></div>
+  </div>
+
+  <!-- ======================= HOST UI ======================= -->
+  <button id="hostToggle" title="Toggle host panel (H)">HOST PANEL</button>
+
+  <div id="hostDrawer">
+    <div class="drawer-tabs">
+      <button class="tab on" data-tab="game">Game</button>
+      <button class="tab" data-tab="bank">Question Bank</button>
+      <button class="tab" data-tab="settings">Settings</button>
+      <div class="spacer"></div>
+      <span class="mini" id="drawerHint">Press H to hide · lowest total wins</span>
+      <button class="closex" id="drawerClose">Hide ▾</button>
+    </div>
+    <div class="drawer-body">
+      <div id="tab-game"></div>
+      <div id="tab-bank" class="hidden"></div>
+      <div id="tab-settings" class="hidden"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- Sound unlock for popped-out display windows -->
+  <div id="soundGate" class="hidden">
+    <div class="card">
+      🔊 Click anywhere to start the display
+      <small>Browsers need one click before sound can play. Press M any time to mute this window.</small>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

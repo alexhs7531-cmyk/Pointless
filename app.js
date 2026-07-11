@@ -306,7 +306,7 @@ function towerCountdown(target, tickMs, suspense, done) {
   //                  the slowdown obvious straight away at the start
   //                  value; higher (e.g. 3) saves it for the death.
   const SUSPENSE_START = 40;
-  const SUSPENSE_MAX   = 19;
+  const SUSPENSE_MAX   = 8;
   const SUSPENSE_CURVE = 2.8;
 
   function suspMult(v) {
